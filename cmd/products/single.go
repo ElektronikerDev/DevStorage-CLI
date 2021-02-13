@@ -22,6 +22,6 @@ var productCmd = &cobra.Command{
 }
 
 func runProduct(cmd *cobra.Command, args []string) error {
-	//TODO: get Product Informations
+	//TODO: get Product Information
 	return nil
 }
