@@ -49,7 +49,7 @@ func runSetup(cmd *cobra.Command, args []string) error {
 	}
 
 	// This check is for the internet connection and the availablity of the CLI Rest Endpoint
-	res, err := http.Get("https://rest.devstorage.eucli")
+	res, err := http.Get("http://localhost:9999/cli")
 
 	// Throw Fatal Log if the connection fail
 	if err != nil {
@@ -74,7 +74,7 @@ func runSetup(cmd *cobra.Command, args []string) error {
 
 	// Check API-Key is valid via Rest API
 	apiCallCheck := ApiCheckCall{}
-	getJson("https://rest.devstorage.eucli/key/"+cliKey, &apiCallCheck)
+	getJson("http://localhost:9999/cli/key/"+cliKey, &apiCallCheck)
 
 	if !apiCallCheck.Successfully {
 		log.Fatalln("It seems that the API is invalid or you are not authorized to use the CLI on this server. " +
